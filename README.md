@@ -1,7 +1,6 @@
 # Gitlab MCP Server for Agents
 
 ## Overview
----
 This is a Gitlab MCP Server specifically for Agents (eg: Pydantic AI). This was developed due to incompatibility of the various other gitlab mcp servers , including the official one with pydantic & llms like google-gemini. 
 This is a wrapper around [gitlab-mcp](https://github.com/zereight/gitlab-mcp) & provides access to all of the tools present (62 !)
 
