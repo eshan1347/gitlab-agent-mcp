@@ -50,25 +50,22 @@ async def main():
     logfire.configure(send_to_logfire='if-token-present')
     logfire.instrument_pydantic()
     logfire.instrument_pydantic_ai()
-    # logfire.instrument_google_genai()
-    # gitlabMCP = GitlabMCP(os.environ['GITLAB_ACCESS_TOKEN'], os.environ['GITLAB_PROJECT_ID'])
-    # await gitlabMCP._connect()
+    logfire.instrument_google_genai()
     agent = Agent('google-gla:gemini-2.5-flash', toolsets=[server])
-    while True:
-        q = input('Question: ')
-        async with agent:
-            logger.info("Starting agent")
-            try:
+    qs = ['list all tools', 'list all my projects', 'get README file for project 75002825']
+    async with agent:
+        logger.info("Starting agent")
+        try:
+            for q in qs:
                 res = await agent.run(q)
-            except Exception as e:
-                if hasattr(e, 'args') and e.args:
-                    logger.warning(f"Gemini Error:\n{e.args[0]}")
-                if hasattr(e, '__cause__') and e.__cause__:
-                    logger.warning(f"Underlying cause:\n{e.__cause__}")
-                raise
-            logger.info(f'Answer: {res.output}')
-            logger.info(f'Usage: {res.usage()}')
-    # await gitlabMCP.disconnect()
+                logger.info(f'Answer: {res.output}')
+                logger.info(f'Usage: {res.usage()}')
+        except Exception as e:
+            if hasattr(e, 'args') and e.args:
+                logger.warning(f"Gemini Error:\n{e.args[0]}")
+            if hasattr(e, '__cause__') and e.__cause__:
+                logger.warning(f"Underlying cause:\n{e.__cause__}")
+            raise
 
 if __name__=='__main__':
     asyncio.run(main())

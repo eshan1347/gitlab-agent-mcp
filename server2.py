@@ -30,106 +30,28 @@ gitlabMCP = GitlabMCP(os.environ['GITLAB_ACCESS_TOKEN'], os.environ['GITLAB_PROJ
 
 mcp_server = mcp.server.Server('gitlab-agent-server') #lifespan=server_lifespan)
 
-# ipSs = [
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {'search': {'type': 'string', 'description': 'Search for projects with project name & retrieve project details[ID, content] for the top match'}, 'owned': {'type': 'boolean', "description": "Filter for projects owned by current user", "default": 'true'}}, 'required': ['search', 'owned']},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {'project_id': {'type': 'number', 'description': 'Project ID for which details are to be fetched'}}, 'required': ['project_id']},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-#     {'type': 'object', 'properties': {}, 'required': []},
-# ]
-
 @mcp_server.list_tools()
 async def list_tools() -> List[Optional[Tool]]:
     """List all available Gitlab tools"""
 
     tools = await gitlabMCP.get_tools()
     res = []
-    # for i, (tool, ipS) in enumerate(zip(tools, ipSs)):
-    for i, tool in enumerate(tools):
-        # if i in [2,42]:
-        if i in [2, 4, 42, 43]: #not 16, 22, 23, 29, 47, 48
-            # logging.info(f'{i}.\nTool: {tool}')
-            # description = tool.description if i != 2 else 'Search for projects with project name & retrieve project details[ID, content] for the top match'
+    for i, tool in enumerate(tools[:]):
+        # if i not in [47, 48, 49, 50]: #not 16, 22, 23, 29, 47, 48
             try:
                 name = tool.name
                 if not name:
                     continue
                 description = tool.description
-                ipS = tool.inputSchema
-                if ipS:
-                    ipS = jsonConv(ipS)
-                else:
-                    ipS = {'type': 'object', 'properties': {}, 'required': []}
+                ipS = jsonConv(tool.inputSchema) if tool.inputSchema else {'type': 'object', 'properties': {}, 'required': []}
+                # logger.info(f'Tool {i}: \nOg:{tool.inputSchema} \nfixed:{ipS}')
                 temp = Tool(name=name, description=description, inputSchema=ipS)
-                res.append(temp)
-            except (genai.errors.ClientError, AttributeError, TypeError, NameError, pydantic.error_wrappers.ValidationError) as e:
-                try:
-                    async def dummy_callable(**kwargs): 
-                        return None
-                    temp = Tool(name=name, description=description, inputSchema=ipS, callable=dummy_callable)
-                    res.append(temp)
-                except pydantic.error_wrappers.ValidationError as e:
-                    logger.warn(f'Oops^2 {i} \n{tool}\n{"_"*40}: {e}')
-                logger.warn(f'Oops {i} \n{tool}\n{"_"*40}: {e}')
-            logger.info(f'Tool {i}: {temp}')
+            except Exception as e:
+                async def dummy_callable(**kwargs): 
+                    return None
+                temp = Tool(name=name, description=description, inputSchema=ipS, callable=dummy_callable)
+                logger.warning(f'Oops {i} \n{tool}\n{"_"*40}: {e}')
+            res.append(temp)
     logger.info(f'list_tools: {len(res)}')
     return res
 
@@ -153,7 +75,6 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
 #     return res.content
 
 async def main():
-    # Initialize and run the server
     try:
         await gitlabMCP._connect()
         async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
@@ -167,5 +88,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# 16, 22, 23, 29, 47, 48
