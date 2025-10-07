@@ -62,91 +62,91 @@ This is a wrapper around [gitlab-mcp](https://github.com/zereight/gitlab-mcp) & 
 13. GITLAB_COMMIT_FILES_PER_PAGE: The number of files per page that GitLab returns for commit diffs. This value should match the server-side GitLab setting. Adjust this if your GitLab instance uses a custom per-page value for commit diffs.
 
 ## Tools  :
-merge_merge_request - Merge a merge request in a GitLab project
-create_or_update_file - Create or update a single file in a GitLab project
-search_repositories - Search for GitLab projects
-create_repository - Create a new GitLab project
-get_file_contents - Get the contents of a file or directory from a GitLab project
-push_files - Push multiple files to a GitLab project in a single commit
-create_issue - Create a new issue in a GitLab project
-create_merge_request - Create a new merge request in a GitLab project
-fork_repository - Fork a GitLab project to your account or specified namespace
-create_branch - Create a new branch in a GitLab project
-get_merge_request - Get details of a merge request (Either mergeRequestIid or branchName must be provided)
-get_merge_request_diffs - Get the changes/diffs of a merge request (Either mergeRequestIid or branchName must be provided)
-list_merge_request_diffs - List merge request diffs with pagination support (Either mergeRequestIid or branchName must be provided)
-get_branch_diffs - Get the changes/diffs between two branches or commits in a GitLab project
-update_merge_request - Update a merge request (Either mergeRequestIid or branchName must be provided)
-create_note - Create a new note (comment) to an issue or merge request
-create_merge_request_thread - Create a new thread on a merge request
-mr_discussions - List discussion items for a merge request
-update_merge_request_note - Modify an existing merge request thread note
-create_merge_request_note - Add a new note to an existing merge request thread
-get_draft_note - Get a single draft note from a merge request
-list_draft_notes - List draft notes for a merge request
-create_draft_note - Create a draft note for a merge request
-update_draft_note - Update an existing draft note
-delete_draft_note - Delete a draft note
-publish_draft_note - Publish a single draft note
-bulk_publish_draft_notes - Publish all draft notes for a merge request
-update_issue_note - Modify an existing issue thread note
-create_issue_note - Add a new note to an existing issue thread
-list_issues - List issues (default: created by current user only; use scope='all' for all accessible issues)
-my_issues - List issues assigned to the authenticated user (defaults to open issues)
-get_issue - Get details of a specific issue in a GitLab project
-update_issue - Update an issue in a GitLab project
-delete_issue - Delete an issue from a GitLab project
-list_issue_links - List all issue links for a specific issue
-list_issue_discussions - List discussions for an issue in a GitLab project
-get_issue_link - Get a specific issue link
-create_issue_link - Create an issue link between two issues
-delete_issue_link - Delete an issue link
-list_namespaces - List all namespaces available to the current user
-get_namespace - Get details of a namespace by ID or path
-verify_namespace - Verify if a namespace path exists
-get_project - Get details of a specific project
-list_projects - List projects accessible by the current user
-list_project_members - List members of a GitLab project
-list_labels - List labels for a project
-get_label - Get a single label from a project
-create_label - Create a new label in a project
-update_label - Update an existing label in a project
-delete_label - Delete a label from a project
-list_group_projects - List projects in a GitLab group with filtering options
-list_wiki_pages - List wiki pages in a GitLab project
-get_wiki_page - Get details of a specific wiki page
-create_wiki_page - Create a new wiki page in a GitLab project
-update_wiki_page - Update an existing wiki page in a GitLab project
-delete_wiki_page - Delete a wiki page from a GitLab project
-get_repository_tree - Get the repository tree for a GitLab project (list files and directories)
-list_pipelines - List pipelines in a GitLab project with filtering options
-get_pipeline - Get details of a specific pipeline in a GitLab project
-list_pipeline_jobs - List all jobs in a specific pipeline
-list_pipeline_trigger_jobs - List all trigger jobs (bridges) in a specific pipeline that trigger downstream pipelines
-get_pipeline_job - Get details of a GitLab pipeline job number
-get_pipeline_job_output - Get the output/trace of a GitLab pipeline job with optional pagination to limit context window usage
-create_pipeline - Create a new pipeline for a branch or tag
-retry_pipeline - Retry a failed or canceled pipeline
-cancel_pipeline - Cancel a running pipeline
-play_pipeline_job - Run a manual pipeline job
-retry_pipeline_job - Retry a failed or canceled pipeline job
-cancel_pipeline_job - Cancel a running pipeline job
-list_merge_requests - List merge requests in a GitLab project with filtering options
-list_milestones - List milestones in a GitLab project with filtering options
-get_milestone - Get details of a specific milestone
-create_milestone - Create a new milestone in a GitLab project
-edit_milestone - Edit an existing milestone in a GitLab project
-delete_milestone - Delete a milestone from a GitLab project
-get_milestone_issue - Get issues associated with a specific milestone
-get_milestone_merge_requests - Get merge requests associated with a specific milestone
-promote_milestone - Promote a milestone to the next stage
-get_milestone_burndown_events - Get burndown events for a specific milestone
-get_users - Get GitLab user details by usernames
-list_commits - List repository commits with filtering options
-get_commit - Get details of a specific commit
-get_commit_diff - Get changes/diffs of a specific commit
-list_group_iterations - List group iterations with filtering options
-upload_markdown - Upload a file to a GitLab project for use in markdown content
-download_attachment - Download an uploaded file from a GitLab project by secret and filename
-list_events - List all events for the currently authenticated user
-get_project_events - List all visible events for a specified project
+- merge_merge_request - Merge a merge request in a GitLab project
+- create_or_update_file - Create or update a single file in a GitLab project
+- search_repositories - Search for GitLab projects
+- create_repository - Create a new GitLab project
+- get_file_contents - Get the contents of a file or directory from a GitLab project
+- push_files - Push multiple files to a GitLab project in a single commit
+- create_issue - Create a new issue in a GitLab project
+- create_merge_request - Create a new merge request in a GitLab project
+- fork_repository - Fork a GitLab project to your account or specified namespace
+- create_branch - Create a new branch in a GitLab project
+- get_merge_request - Get details of a merge request (Either mergeRequestIid or branchName must be provided)
+- get_merge_request_diffs - Get the changes/diffs of a merge request (Either mergeRequestIid or branchName must be provided)
+- list_merge_request_diffs - List merge request diffs with pagination support (Either mergeRequestIid or branchName must be provided)
+- get_branch_diffs - Get the changes/diffs between two branches or commits in a GitLab project
+- update_merge_request - Update a merge request (Either mergeRequestIid or branchName must be provided)
+- create_note - Create a new note (comment) to an issue or merge request
+- create_merge_request_thread - Create a new thread on a merge request
+- mr_discussions - List discussion items for a merge request
+- update_merge_request_note - Modify an existing merge request thread note
+- create_merge_request_note - Add a new note to an existing merge request thread
+- get_draft_note - Get a single draft note from a merge request
+- list_draft_notes - List draft notes for a merge request
+- create_draft_note - Create a draft note for a merge request
+- update_draft_note - Update an existing draft note
+- delete_draft_note - Delete a draft note
+- publish_draft_note - Publish a single draft note
+- bulk_publish_draft_notes - Publish all draft notes for a merge request
+- update_issue_note - Modify an existing issue thread note
+- create_issue_note - Add a new note to an existing issue thread
+- list_issues - List issues (default: created by current user only; use scope='all' for all accessible issues)
+- my_issues - List issues assigned to the authenticated user (defaults to open issues)
+- get_issue - Get details of a specific issue in a GitLab project
+- update_issue - Update an issue in a GitLab project
+- delete_issue - Delete an issue from a GitLab project
+- list_issue_links - List all issue links for a specific issue
+- list_issue_discussions - List discussions for an issue in a GitLab project
+- get_issue_link - Get a specific issue link
+- create_issue_link - Create an issue link between two issues
+- delete_issue_link - Delete an issue link
+- list_namespaces - List all namespaces available to the current user
+- get_namespace - Get details of a namespace by ID or path
+- verify_namespace - Verify if a namespace path exists
+- get_project - Get details of a specific project
+- list_projects - List projects accessible by the current user
+- list_project_members - List members of a GitLab project
+- list_labels - List labels for a project
+- get_label - Get a single label from a project
+- create_label - Create a new label in a project
+- update_label - Update an existing label in a project
+- delete_label - Delete a label from a project
+- list_group_projects - List projects in a GitLab group with filtering options
+- list_wiki_pages - List wiki pages in a GitLab project
+- get_wiki_page - Get details of a specific wiki page
+- create_wiki_page - Create a new wiki page in a GitLab project
+- update_wiki_page - Update an existing wiki page in a GitLab project
+- delete_wiki_page - Delete a wiki page from a GitLab project
+- get_repository_tree - Get the repository tree for a GitLab project (list files and directories)
+- list_pipelines - List pipelines in a GitLab project with filtering options
+- get_pipeline - Get details of a specific pipeline in a GitLab project
+- list_pipeline_jobs - List all jobs in a specific pipeline
+- list_pipeline_trigger_jobs - List all trigger jobs (bridges) in a specific pipeline that trigger downstream pipelines
+- get_pipeline_job - Get details of a GitLab pipeline job number
+- get_pipeline_job_output - Get the output/trace of a GitLab pipeline job with optional pagination to limit context window usage
+- create_pipeline - Create a new pipeline for a branch or tag
+- retry_pipeline - Retry a failed or canceled pipeline
+- cancel_pipeline - Cancel a running pipeline
+- play_pipeline_job - Run a manual pipeline job
+- retry_pipeline_job - Retry a failed or canceled pipeline job
+- cancel_pipeline_job - Cancel a running pipeline job
+- list_merge_requests - List merge requests in a GitLab project with filtering options
+- list_milestones - List milestones in a GitLab project with filtering options
+- get_milestone - Get details of a specific milestone
+- create_milestone - Create a new milestone in a GitLab project
+- edit_milestone - Edit an existing milestone in a GitLab project
+- delete_milestone - Delete a milestone from a GitLab project
+- get_milestone_issue - Get issues associated with a specific milestone
+- get_milestone_merge_requests - Get merge requests associated with a specific milestone
+- promote_milestone - Promote a milestone to the next stage
+- get_milestone_burndown_events - Get burndown events for a specific milestone
+- get_users - Get GitLab user details by usernames
+- list_commits - List repository commits with filtering options
+- get_commit - Get details of a specific commit
+- get_commit_diff - Get changes/diffs of a specific commit
+- list_group_iterations - List group iterations with filtering options
+- upload_markdown - Upload a file to a GitLab project for use in markdown content
+- download_attachment - Download an uploaded file from a GitLab project by secret and filename
+- list_events - List all events for the currently authenticated user
+- get_project_events - List all visible events for a specified project
