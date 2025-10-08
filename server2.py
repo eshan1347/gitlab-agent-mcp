@@ -9,7 +9,6 @@ from server import GitlabMCP
 import os 
 import sys
 import mcp
-from utils import fix_schema, fix_schema2
 import logging
 from utils2 import jsonConv
 from google import genai
