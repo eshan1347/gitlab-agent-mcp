@@ -44,7 +44,7 @@ This is a wrapper around [gitlab-mcp](https://github.com/zereight/gitlab-mcp) & 
         'GITLAB_ACCESS_TOKEN': "your_gitlab_token",
         'GITLAB_PROJECT_ID': "your_project_id" //Optional        
     }
-  )
+     )
 
 ### Environment Variables : 
 1. `GITLAB_PERSONAL_ACCESS_TOKEN`: Your GitLab personal access token.
