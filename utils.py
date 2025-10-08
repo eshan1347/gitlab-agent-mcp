@@ -100,4 +100,5 @@ def fix_schema(schema: Dict[str, Any], allow_external: bool = False) -> Dict[str
     return _resolve(root)
 
 if __name__=='__main__':
-    print(fix_schema(test_json))
+    # print(fix_schema(test_json))
+    pass
