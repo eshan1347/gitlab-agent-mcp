@@ -9,6 +9,7 @@ This is a wrapper around [gitlab-mcp](https://github.com/zereight/gitlab-mcp) & 
 - **Compatible**: Compatible with the latest frameworks & tools like pydantic , google-gemini . 
 - **Extensive Toolset**: Access a wide range of tools for CRUD operations on Merge requests, files, repositories, branches, notes, issues, namespaces, projects ,labels, commits, events.
 - **Validation**: Improved validation for Tool inputs, properties & JSON schemas.
+- **Connection**: Supports both stdio and streamable HTTPS for flexible and reliable agent communication.
 ---
 ## Project Structure
 ```
