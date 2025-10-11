@@ -50,7 +50,7 @@ async def main():
     logfire.configure(send_to_logfire='if-token-present')
     logfire.instrument_pydantic()
     logfire.instrument_pydantic_ai()
-    logfire.instrument_google_genai()
+    # logfire.instrument_google_genai()
     agent = Agent('google-gla:gemini-2.5-flash', toolsets=[server])
     qs = ['list all tools', 'list all my projects', 'get README file for project 75002825']
     async with agent:
