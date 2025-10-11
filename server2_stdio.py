@@ -11,7 +11,7 @@ import sys
 import mcp
 import logging
 from utils2 import jsonConv
-from google import genai
+# from google import genai
 
 logging.basicConfig(stream=sys.stderr, level=logging.INFO)
 logger = logging.getLogger(__name__)
