@@ -33,18 +33,26 @@ This is a wrapper around [gitlab-mcp](https://github.com/zereight/gitlab-mcp) & 
 2. Install requirements :
    ```bash
    pip install -r requirements.txt
-3. Run the mcp server :
+3. Set up your environment by creating a `.env` file or exporting the variables directly in your terminal. 
+4. Run the mcp server :
+   
+   STDIO :-
    ```python
    server = pydantic_ai.mcp.MCPServerStdio(
     command='python',
     args=[
-        'server2.py'
+        'server2_stdio.py'
     ],
     env={
         'GITLAB_ACCESS_TOKEN': "your_gitlab_token",
         'GITLAB_PROJECT_ID': "your_project_id" //Optional        
     }
      )
+   ```
+   Streamable HTTP :-
+   ```bash
+   python ./server2_http
+   
 
 ### Environment Variables : 
 1. `GITLAB_PERSONAL_ACCESS_TOKEN`: Your GitLab personal access token.
